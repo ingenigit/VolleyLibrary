@@ -19,7 +19,6 @@ public class VolleyMultipartRequest extends Request<NetworkResponse> {
     public final String twoHyphens = "--";
     public final String lineEnd = "\r\n";
     public final String boundary = "apiclient-" + System.currentTimeMillis();
-
     public Response.Listener<NetworkResponse> mListener;
     public Response.ErrorListener mErrorListener;
     public Map<String, String> mHeaders;
@@ -71,7 +70,6 @@ public class VolleyMultipartRequest extends Request<NetworkResponse> {
     public byte[] getBody() throws AuthFailureError {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         DataOutputStream dos = new DataOutputStream(bos);
-
         try {
             // populate text payload
             Map<String, String> params = getParams();
@@ -125,7 +123,6 @@ public class VolleyMultipartRequest extends Request<NetworkResponse> {
     public void deliverError(VolleyError error) {
         mErrorListener.onErrorResponse(error);
     }
-
     /**
      * Parse string map into data output stream by key and value.
      *
@@ -205,7 +202,6 @@ public class VolleyMultipartRequest extends Request<NetworkResponse> {
             bufferSize = Math.min(bytesAvailable, maxBufferSize);
             bytesRead = fileInputStream.read(buffer, 0, bufferSize);
         }
-
         dataOutputStream.writeBytes(lineEnd);
     }
 

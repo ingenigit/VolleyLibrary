@@ -43,7 +43,6 @@ public class LruBitmapCache extends LruCache<String, Bitmap> implements ImageLoa
         final int screenHeight = displayMetrics.heightPixels;
         // 4 bytes per pixel
         final int screenBytes = screenWidth * screenHeight * 4;
-
         return screenBytes * 3;
     }
 }
